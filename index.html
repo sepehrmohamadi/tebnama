@@ -3,8 +3,8 @@ layout: default
 ---
 <div class="hero lazyloaded" data-bg="/assets/bg_lg.jpg" style="background-image: url(&quot;/assets/bg_lg.jpg&quot;);">
     <div class="hero-wrap">
-        <h1 class="hero-title">اشتراک‌گذاری تجربه‌ی کاری با همه!</h1>
-        <h2 class="hero-search" onclick="window.location.href='/search'">جستجوی نام شرکت مورد نظر...</h2>
+        <h1 class="hero-title">اشتراک‌گذاری تجربیات حوزه سلامت با همه!</h1>
+        <h2 class="hero-search" onclick="window.location.href='/search'">جستجوی نام پزشک، کلینیک یا دارو...</h2>
     </div>
 </div>
 <main class="site-content">
@@ -16,7 +16,7 @@ layout: default
                         <table>
                             <tbody id="latest-review-body">
                                 <tr>
-                                    <th colspan="2"><b>آخرین تجربه‌ها</b></th>
+                                    <th colspan="2"><b>آخرین تجربیات</b></th>
                                 </tr>
                             </tbody>
                         </table>
@@ -84,10 +84,10 @@ layout: default
 <script src="/assets/jalali-moment.browser-v3.3.11.js"></script>
 <script>
     let latestReviews = "";
-    fetch('https://api.github.com/repos/tajrobe/tajrobe.github.io/commits?per_page=20').then(res => res.json()).then(trees => {
+    fetch('https://api.github.com/repos/tebnama/tebnama.github.io/commits?per_page=20').then(res => res.json()).then(trees => {
         for (let tree of trees)
             if (tree.commit.message.includes("/") && !tree.commit.message.includes("/patch"))
-                latestReviews += "<tr><td><a href='/" + encodeURI(tree.commit.message.split("/")[1]) + "' target='_blank'>تجربه‌ی کاری جدید در شرکت " + tree.commit.message.split("/")[1].replaceAll("-", " ") + "</a></td><td><small>" + moment.from(tree.commit.committer.date, 'en').locale('fa').fromNow() + "</small></td></tr>";
+                latestReviews += "<tr><td><a href='/" + encodeURI(tree.commit.message.split("/")[1]) + "' target='_blank'>تجربه جدید در حوزه سلامت " + tree.commit.message.split("/")[1].replaceAll("-", " ") + "</a></td><td><small>" + moment.from(tree.commit.committer.date, 'en').locale('fa').fromNow() + "</small></td></tr>";
 
         document.getElementById("latest-review-body").insertAdjacentHTML('beforeend', latestReviews);
     });

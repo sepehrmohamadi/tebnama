@@ -1,0 +1,18 @@
+{
+  "name": "tebnama-admin-tools",
+  "version": "1.0.0",
+  "description": "Admin tools for Tebnama.ir - Health experience sharing platform",
+  "main": "index.js",
+  "scripts": {
+    "generate-review": "node generate-review.js"
+  },
+  "keywords": [
+    "health",
+    "reviews",
+    "admin",
+    "tebnama"
+  ],
+  "author": "Tebnama Admin",
+  "license": "MIT",
+  "dependencies": {}
+}

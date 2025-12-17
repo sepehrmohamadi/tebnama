@@ -3,9 +3,9 @@ layout: default
 ---
 <div class="hero lazyloaded" data-bg="/assets/bg_lg.jpg" style="background-image: url(&quot;/assets/bg_lg.jpg&quot;);">
   <div class="hero-wrap">
-    <h1 class="hero-title">اشتراک‌گذاری تجربه‌ی کاری با همه!</h1>
+    <h1 class="hero-title">اشتراک‌گذاری تجربیات حوزه سلامت با همه!</h1>
     <h2 class="hero-search"><input class="input" id="search" type="search" name="search" autocomplete="off"
-        placeholder="جستجوی نام شرکت مورد نظر..."></h2>
+        placeholder="جستجوی نام پزشک، کلینیک یا دارو..."></h2>
   </div>
 </div>
 <main class="site-content">
@@ -51,8 +51,8 @@ layout: default
     </div>`;
     }).join('');
     if ((resultsArray.length == 0) || (this.value == '')) {
-      const company = document.querySelector('#search').value;
-      resultsList.innerHTML = `<br/><p class="center">شرکت «${company}» یافت نشد، می‌خواهید «${company}» را <a href="{{ site.github }}issues/new?assignees=tajrobe&labels=%D8%AB%D8%A8%D8%AA+%D8%B4%D8%B1%DA%A9%D8%AA+%D8%AC%D8%AF%DB%8C%D8%AF&template=ADD_MISSING_COMPANY_TEMPLATE.md" target="_blank">به لیست شرکت‌ها اضافه کنید؟</a></p><br/><br/><br/>`;
+      const entity = document.querySelector('#search').value;
+      resultsList.innerHTML = `<br/><p class="center">مورد «${entity}» یافت نشد، می‌خواهید «${entity}» را <a href="{{ site.github }}issues/new?assignees=tebnama&labels=%D8%A7%D9%81%D8%B2%D9%88%D8%AF%D9%86+%D9%85%D9%88%D8%B1%D8%AF+%D8%AC%D8%AF%DB%8C%D8%AF&template=ADD_MISSING_ENTITY_TEMPLATE.md" target="_blank">به لیست اضافه کنید؟</a></p><br/><br/><br/>`;
     } else {
       resultsList.innerHTML = html;
     }

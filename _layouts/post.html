@@ -45,9 +45,9 @@ layout: default
          <div class="row">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
                <section id="review-suggest-section" class="c-cardText o-box review-suggest-section">
-                  <span>تجربه‌ی کار در {{ page.title }} را دارید؟</span>
+                  <span>تجربه در مورد {{ page.title }} را دارید؟</span>
                   <a id="review-suggest-section-link" class="review-suggest-section-link"
-                     href="/review?slug={{ page.company_slug }}">ثبت تجربه‌ی کاری</a>
+                     href="/review?slug={{ page.company_slug }}">ثبت تجربه</a>
                </section>
                <section class="c-cardText o-box">
                   <div class="pull-right">
@@ -72,7 +72,7 @@ layout: default
                            شرکت</a></small>
                   </div>
                </section>
-               <h4 class="c-heading c-heading--h4">تجربه&zwnj;های کاری در {{ page.title }}</h4>
+               <h4 class="c-heading c-heading--h4">تجربیات مرتبط با {{ page.title }}</h4>
                <div id="sorted-section"></div>
                {%- for comment in comments -%}
                {% assign commentDate = comment[1].date | slice: 0,10 | plus: 0 %}
@@ -117,7 +117,7 @@ layout: default
                                  replace: ']', '' | replace: '[', '' }}</span> {%- endfor -%}</p>{%- endif -%}
                            <small><a
                                  href="{{ site.github }}blob/master/_data/review/{{ page.company_slug }}/{{ comment[0] }}.yml"
-                                 target="_blank">پیوند یکتای این تجربه‌ی کاری</a></small>
+                                 target="_blank">پیوند یکتای این تجربه</a></small>
                         </div>
                         <div class="card-footer text-muted">
                            <small> ℹ️ این تجربه، نظر شخصی یک فرد است و الزامی بر درستی/نادرستی آن نیست.</small>
@@ -130,4 +130,4 @@ layout: default
          {% include disqus.html %}
    </div>
 </div>
-<script>let datetimes = [], occurrence = 0, url = new URL(window.location.href); document.querySelectorAll('time').forEach((t) => { t.innerHTML = new Date(Number(t.getAttribute("datetime"))).toLocaleDateString('fa-IR') }); fetch('https://api.github.com/repos/tajrobe/tajrobe.github.io/commits?per_page=50').then(res => res.json()).then(trees => { trees.forEach(function (t) { if (decodeURIComponent(url.pathname).replaceAll("/", "") == t.commit.message.split("/")[1]) occurrence++; }); document.querySelector("#review-suggest-section-link").href = (occurrence > 2) ? "https://github.com/tajrobe/tajrobe.github.io/issues/new?assignees=tajrobe&labels=%D8%AB%D8%A8%D8%AA+%D8%AA%D8%AC%D8%B1%D8%A8%D9%87%E2%80%8C%DB%8C+%DA%A9%D8%A7%D8%B1%DB%8C&projects=&template=ADD_REVIEW_TEMPLATE.md" : document.querySelector("#review-suggest-section-link").href + "&name=" + url.pathname.replaceAll("/", ""); }); if (url.searchParams.get("sendReview")) document.querySelector('#review-suggest-section').innerHTML = '<span>تجربه‌ی کاری شما با موفقیت ارسال شد و تا چند دقیقه‌ی دیگر، در این صفحه نمایش داده می‌شود. در این فاصله می‌توانید از ما <a href=/donate>حمایت کنید ❤️</a>.</span>'; for (let datetime of document.getElementsByTagName("time")) datetimes.push(datetime.getAttribute("datetime")); if (datetimes.length > 0) for (let datetime of datetimes.sort().reverse()) document.getElementById("sorted-section").append(document.querySelector('[datetime="' + datetime + '"]').closest('section'));</script>
+<script>let datetimes = [], occurrence = 0, url = new URL(window.location.href); document.querySelectorAll('time').forEach((t) => { t.innerHTML = new Date(Number(t.getAttribute("datetime"))).toLocaleDateString('fa-IR') }); fetch('https://api.github.com/repos/tebnama/tebnama.github.io/commits?per_page=50').then(res => res.json()).then(trees => { trees.forEach(function (t) { if (decodeURIComponent(url.pathname).replaceAll("/", "") == t.commit.message.split("/")[1]) occurrence++; }); document.querySelector("#review-suggest-section-link").href = (occurrence > 2) ? "https://github.com/tebnama/tebnama.github.io/issues/new?assignees=tebnama&labels=%D8%AA%D8%AC%D8%B1%D8%A8%D9%87+%D8%AD%D9%88%D8%B2%D9%87+%D8%B3%D9%84%D8%A7%D9%85%D8%AA&projects=&template=ADD_REVIEW_TEMPLATE.md" : document.querySelector("#review-suggest-section-link").href + "&name=" + url.pathname.replaceAll("/", ""); }); if (url.searchParams.get("sendReview")) document.querySelector('#review-suggest-section').innerHTML = '<span>تجربه شما با موفقیت ارسال شد و تا چند دقیقه‌ی دیگر، در این صفحه نمایش داده می‌شود. در این فاصله می‌توانید از ما <a href=/donate>حمایت کنید ❤️</a>.</span>'; for (let datetime of document.getElementsByTagName("time")) datetimes.push(datetime.getAttribute("datetime")); if (datetimes.length > 0) for (let datetime of datetimes.sort().reverse()) document.getElementById("sorted-section").append(document.querySelector('[datetime="' + datetime + '"]').closest('section'));</script>
