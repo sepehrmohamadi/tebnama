@@ -1,7 +1,7 @@
 name: طب‌نما - تجربیات حوزه سلامت
 url: https://tebnama.ketonia.life
 baseurl: 
-permalink: /:title/
+permalink: /:title.html
 paginate_path: /page/:num/
 paginate: 200
 disqus:
