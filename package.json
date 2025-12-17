@@ -3,6 +3,7 @@
     "js-yaml": "^4.1.0"
   },
   "scripts": {
-    "build": "node ./extension-data-generator.js"
+    "build": "node ./extension-data-generator.js",
+    "generate-search-index": "node ./admin-tools/generate-search-index.js"
   }
 }

@@ -1,8 +1,8 @@
 ---
 layout: default
 ---
-<div class="hero lazyloaded" data-bg="/assets/bg_lg.jpg"
-    style="background-image: url(&quot;/assets/bg_lg.jpg&quot;);min-height: 16.25em;height: 0;">
+<div class="hero lazyloaded" data-bg="{{ '/assets/bg_lg.jpg' | relative_url }}"
+    style="background-image: url(&quot;{{ '/assets/bg_lg.jpg' | relative_url }}&quot;);min-height: 16.25em;height: 0;">
     <div class="hero-wrap">
         <h1 id="hero-title" class="hero-title">ثبت تجربه برای </h1>
     </div>
@@ -22,9 +22,9 @@ layout: default
                         <p>🩺 نظر و تجربه&zwnj;ی شما، شاید برای سال&zwnj;ها اینجا یادگاری بمونه؛ پس چیزی بنویس که نشون دهنده&zwnj;ی تجربه&zwnj;ی واقعی و مفیدت باشه و هر کسی که اون رو میخونه بتونه ازش در تصمیم&zwnj;گیری&zwnj;های سلامتی خود استفاده کنه.</p>
                         <button class=" review-form-submit-button" onclick="document.getElementById('readme').style.display='none'; document.getElementById('review-form').style.display='block'">بزن بریم!</button>
                     </div>
-                    <script src="/assets/slimselect.min.js"></script>
+                    <script src="{{ '/assets/slimselect.min.js' | relative_url }}"></script>
                     <script src="https://js.hcaptcha.com/1/api.js?hl=fa" async defer></script>
-                    <link rel="stylesheet" type="text/css" href="/assets/slimselect.min.css">
+                    <link rel="stylesheet" type="text/css" href="{{ '/assets/slimselect.min.css' | relative_url }}">
                     <form id="review-form" method="POST" onsubmit="return checkForm(this);" action="{{ site.reviewActionUrl }}" style="display: none;">
                         <input name="options[slug]" id="slug" type="hidden">
                         <input name="options[redirect]" id="redirect" type="hidden">
@@ -107,7 +107,7 @@ layout: default
     fetch('https://api.github.com/repos/tebnama/tebnama.github.io/commits?per_page=50').then(res => res.json()).then(trees => { trees.forEach(function (t) { if (decodeURIComponent(url.searchParams.get("name")) == t.commit.message.split("/")[1]) occurrence++; }); if (occurrence > 2) window.location.replace("https://github.com/tebnama/tebnama.github.io/issues/new?assignees=tebnama&labels=%D8%AA%D8%AC%D8%B1%D8%A8%D9%87+%D8%AD%D9%88%D8%B2%D9%87+%D8%B3%D9%84%D8%A7%D9%85%D8%AA&projects=&template=ADD_REVIEW_TEMPLATE.md"); });
     document.querySelector('#hero-title').append(url.searchParams.get("name").replaceAll("-", " "));
     document.querySelector("#slug").value = url.searchParams.get("slug");
-    document.querySelector("#redirect").value = "{{ site.url }}/" + url.searchParams.get("name") + "?sendReview=true";
+    document.querySelector("#redirect").value = "{{ '/' | relative_url }}" + url.searchParams.get("name") + "?sendReview=true";
     document.querySelector("#useragent").value = navigator.userAgent;
     new SlimSelect({ select: '#pros', placeholder: 'انتخاب کنید...' }).selected();
     new SlimSelect({ select: '#cons', placeholder: 'انتخاب کنید...' }).selected();

@@ -47,7 +47,7 @@ layout: default
                <section id="review-suggest-section" class="c-cardText o-box review-suggest-section">
                   <span>تجربه در مورد {{ page.title }} را دارید؟</span>
                   <a id="review-suggest-section-link" class="review-suggest-section-link"
-                     href="/review?slug={{ page.company_slug }}">ثبت تجربه</a>
+                     href="{{ '/review' | relative_url }}?slug={{ page.company_slug }}">ثبت تجربه</a>
                </section>
                <section class="c-cardText o-box">
                   <div class="pull-right">
@@ -55,8 +55,7 @@ layout: default
                   </div>
                   <div class="pull-left center">
                      <div class="rating">
-                        <div class="rating-upper"
-                           style="width: {{ totalRate | divided_by: totalSize | times: 20 | round: 2 }}%">
+                        <div class="rating-upper" style="width: {{ totalRate | divided_by: totalSize | times: 20 | round: 2 }}%">
                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                         <div class="rating-lower"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -130,4 +129,4 @@ layout: default
          {% include disqus.html %}
    </div>
 </div>
-<script>let datetimes = [], occurrence = 0, url = new URL(window.location.href); document.querySelectorAll('time').forEach((t) => { t.innerHTML = new Date(Number(t.getAttribute("datetime"))).toLocaleDateString('fa-IR') }); fetch('https://api.github.com/repos/tebnama/tebnama.github.io/commits?per_page=50').then(res => res.json()).then(trees => { trees.forEach(function (t) { if (decodeURIComponent(url.pathname).replaceAll("/", "") == t.commit.message.split("/")[1]) occurrence++; }); document.querySelector("#review-suggest-section-link").href = (occurrence > 2) ? "https://github.com/tebnama/tebnama.github.io/issues/new?assignees=tebnama&labels=%D8%AA%D8%AC%D8%B1%D8%A8%D9%87+%D8%AD%D9%88%D8%B2%D9%87+%D8%B3%D9%84%D8%A7%D9%85%D8%AA&projects=&template=ADD_REVIEW_TEMPLATE.md" : document.querySelector("#review-suggest-section-link").href + "&name=" + url.pathname.replaceAll("/", ""); }); if (url.searchParams.get("sendReview")) document.querySelector('#review-suggest-section').innerHTML = '<span>تجربه شما با موفقیت ارسال شد و تا چند دقیقه‌ی دیگر، در این صفحه نمایش داده می‌شود. در این فاصله می‌توانید از ما <a href=/donate>حمایت کنید ❤️</a>.</span>'; for (let datetime of document.getElementsByTagName("time")) datetimes.push(datetime.getAttribute("datetime")); if (datetimes.length > 0) for (let datetime of datetimes.sort().reverse()) document.getElementById("sorted-section").append(document.querySelector('[datetime="' + datetime + '"]').closest('section'));</script>
+<script>let datetimes = [], occurrence = 0, url = new URL(window.location.href); document.querySelectorAll('time').forEach((t) => { t.innerHTML = new Date(Number(t.getAttribute("datetime"))).toLocaleDateString('fa-IR') }); fetch('https://api.github.com/repos/tebnama/tebnama.github.io/commits?per_page=50').then(res => res.json()).then(trees => { trees.forEach(function (t) { if (decodeURIComponent(url.pathname).replaceAll("/", "") == t.commit.message.split("/")[1]) occurrence++; }); document.querySelector("#review-suggest-section-link").href = (occurrence > 2) ? "https://github.com/tebnama/tebnama.github.io/issues/new?assignees=tebnama&labels=%D8%AA%D8%AC%D8%B1%D8%A8%D9%87+%D8%AD%D9%88%D8%B2%D9%87+%D8%B3%D9%84%D8%A7%D9%85%D8%AA&projects=&template=ADD_REVIEW_TEMPLATE.md" : document.querySelector("#review-suggest-section-link").href + "&name=" + encodeURIComponent(url.pathname.substring(1)); }); if (url.searchParams.get("sendReview")) document.querySelector('#review-suggest-section').innerHTML = '<span>تجربه شما با موفقیت ارسال شد و تا چند دقیقه‌ی دیگر، در این صفحه نمایش داده می‌شود. در این فاصله می‌توانید از ما <a href=/donate>حمایت کنید ❤️</a>.</span>'; for (let datetime of document.getElementsByTagName("time")) datetimes.push(datetime.getAttribute("datetime")); if (datetimes.length > 0) for (let datetime of datetimes.sort().reverse()) document.getElementById("sorted-section").append(document.querySelector('[datetime="' + datetime + '"]').closest('section'));</script>

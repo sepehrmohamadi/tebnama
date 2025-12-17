@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="hero lazyloaded" data-bg="/assets/bg_lg.jpg" style="background-image: url(&quot;/assets/bg_lg.jpg&quot;);">
+<div class="hero lazyloaded" data-bg="{{ '/assets/bg_lg.jpg' | relative_url }}" style="background-image: url(&quot;{{ '/assets/bg_lg.jpg' | relative_url }}&quot;);">
     <div class="hero-wrap">
         <h1 id="hero-title" class="hero-title">درباره طب‌نما</h1>
     </div>
@@ -27,7 +27,7 @@ layout: default
                         </b>
                     </p>
                     <h2>ثبت تجربه</h2>
-                    <p>برای ثبت تجربه، نام پزشک، کلینیک یا داروی مورد نظر را <a href="/search">جستجو</a> کنید، به صفحه‌ی
+                    <p>برای ثبت تجربه، نام پزشک، کلینیک یا داروی مورد نظر را <a href="{{ '/search' | relative_url }}">جستجو</a> کنید، به صفحه‌ی
                         مربوطه رفته و از لینک آبی رنگ بالای صفحه، وارد فرم ثبت تجربه شوید و تجربه‌ی خود را بنویسید؛ لطفاً
                         در تجربه‌ی خود از <u>اشخاص حقیقی</u> نام نبرید.</p>
                     <h2>پاسخ دهندگان</h2>

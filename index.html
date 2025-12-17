@@ -1,10 +1,11 @@
 ---
 layout: default
 ---
-<div class="hero lazyloaded" data-bg="/assets/bg_lg.jpg" style="background-image: url(&quot;/assets/bg_lg.jpg&quot;);">
+
+<div class="hero lazyloaded" data-bg="{{ '/assets/bg_lg.jpg' | relative_url }}" style="background-image: url(&quot;{{ '/assets/bg_lg.jpg' | relative_url }}&quot;);">
     <div class="hero-wrap">
         <h1 class="hero-title">اشتراک‌گذاری تجربیات حوزه سلامت با همه!</h1>
-        <h2 class="hero-search" onclick="window.location.href='/search'">جستجوی نام پزشک، کلینیک یا دارو...</h2>
+        <h2 class="hero-search" onclick="window.location.href='{{ &#39;/search&#39; | relative_url }}'">جستجوی نام پزشک، کلینیک یا دارو...</h2>
     </div>
 </div>
 <main class="site-content">
@@ -27,7 +28,7 @@ layout: default
                     {%- assign posts = paginator.posts | sample: n -%}
                     {% for post in posts%}
                     <div class="col-md-4 col-lg-4 col-xl-4">
-                        <a class="black-link" href="{{ site.baseurl }}{{ post.url }}">
+                        <a class="black-link" href="{{ post.url | relative_url }}">
                             <div class="place-card place-card--small">
                                 <div class="place-card-img">
                                     <img src="https://placehold.co/100?text={{ post.company_slug }}"
@@ -81,13 +82,13 @@ layout: default
         </div>
     </section>
 </main>
-<script src="/assets/jalali-moment.browser-v3.3.11.js"></script>
+<script src="{{ '/assets/jalali-moment.browser-v3.3.11.js' | relative_url }}"></script>
 <script>
     let latestReviews = "";
     fetch('https://api.github.com/repos/tebnama/tebnama.github.io/commits?per_page=20').then(res => res.json()).then(trees => {
         for (let tree of trees)
             if (tree.commit.message.includes("/") && !tree.commit.message.includes("/patch"))
-                latestReviews += "<tr><td><a href='/" + encodeURI(tree.commit.message.split("/")[1]) + "' target='_blank'>تجربه جدید در حوزه سلامت " + tree.commit.message.split("/")[1].replaceAll("-", " ") + "</a></td><td><small>" + moment.from(tree.commit.committer.date, 'en').locale('fa').fromNow() + "</small></td></tr>";
+                latestReviews += "<tr><td><a href='" + encodeURI(tree.commit.message.split("/")[1]) + "' target='_blank'>تجربه جدید در حوزه سلامت " + tree.commit.message.split("/")[1].replaceAll("-", " ") + "</a></td><td><small>" + moment.from(tree.commit.committer.date, 'en').locale('fa').fromNow() + "</small></td></tr>";
 
         document.getElementById("latest-review-body").insertAdjacentHTML('beforeend', latestReviews);
     });

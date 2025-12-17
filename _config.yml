@@ -1,6 +1,6 @@
 name: طب‌نما - تجربیات حوزه سلامت
-url: https://tebnama.github.io
-baseurl: /
+url: https://tebnama.ketonia.life
+baseurl: 
 permalink: /:title/
 paginate_path: /page/:num/
 paginate: 200

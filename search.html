@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="hero lazyloaded" data-bg="/assets/bg_lg.jpg" style="background-image: url(&quot;/assets/bg_lg.jpg&quot;);">
+<div class="hero lazyloaded" data-bg="{{ '/assets/bg_lg.jpg' | relative_url }}" style="background-image: url(&quot;{{ '/assets/bg_lg.jpg' | relative_url }}&quot;);">
   <div class="hero-wrap">
     <h1 class="hero-title">اشتراک‌گذاری تجربیات حوزه سلامت با همه!</h1>
     <h2 class="hero-search"><input class="input" id="search" type="search" name="search" autocomplete="off"
@@ -19,7 +19,7 @@ layout: default
     </div>
   </section>
 </main>
-<script type="text/javascript" src="{{ " /assets/fetch.js" | relative_url }}"></script>
+<script type="text/javascript" src="{{ '/assets/fetch.js' | relative_url }}"></script>
 <script type="text/javascript">
   const endpoint = '{{ "/assets/search.json" | relative_url }}';
   const pages = [];
