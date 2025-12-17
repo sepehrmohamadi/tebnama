@@ -37,7 +37,7 @@ function generateSearchIndex() {
           title: postData.title || '',
           title_en: (postData.company_slug || '').replace(/-/g, ' '),
           city: postData.city || '',
-          url: `${path.basename(file, '.md')}.html`,
+          url: `/${postData.company_slug}/`,
           logo: postData.logo || '',
           cover: postData.cover || ''
         });
