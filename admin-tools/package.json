@@ -4,7 +4,8 @@
   "description": "Admin tools for Tebnama.ir - Health experience sharing platform",
   "main": "index.js",
   "scripts": {
-    "generate-review": "node generate-review.js"
+    "generate-review": "node generate-review.js",
+    "generate-search-index": "node generate-search-index.js"
   },
   "keywords": [
     "health",
@@ -14,5 +15,7 @@
   ],
   "author": "Tebnama Admin",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
 }
